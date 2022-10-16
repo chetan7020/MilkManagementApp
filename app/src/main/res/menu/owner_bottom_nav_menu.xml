@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_customer"
+        android:icon="@drawable/customer"
+        android:iconTint="@color/white"
+        android:title="Customer" />
+
+    <item
+        android:id="@+id/navigation_buySell"
+        android:icon="@drawable/milk_jar"
+        android:iconTint="@color/white"
+        android:title="Buy/Sell" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:iconTint="@color/white"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_bill"
+        android:icon="@drawable/bill"
+        android:iconTint="@color/white"
+        android:title="Bill" />
+
+    <item
+        android:id="@+id/navigation_products"
+        android:icon="@drawable/user"
+        android:iconTint="@color/white"
+        android:title="Profile" />
+
+</menu>
