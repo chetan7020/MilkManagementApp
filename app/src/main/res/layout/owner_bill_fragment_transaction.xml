@@ -26,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:editable="false"
                 android:text="All Customers" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +72,6 @@
                     android:id="@+id/etDateFrom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +101,6 @@
                     android:id="@+id/etDateTo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>

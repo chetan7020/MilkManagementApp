@@ -7,6 +7,7 @@
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
@@ -34,7 +35,7 @@
         android:textColor="@color/black"
         android:textSize="16dp" />
 
-    <include layout="@layout/owner_buysell_summary_table_header_layout" />
+    <include layout="@layout/customer_buyell_table_header_layout" />
 
 
 </LinearLayout>

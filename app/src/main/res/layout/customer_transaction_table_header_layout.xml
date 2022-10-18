@@ -37,7 +37,7 @@
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Dairy Owner"
+            android:text="Dairy Name"
             android:textColor="@color/white" />
 
     </TableRow>

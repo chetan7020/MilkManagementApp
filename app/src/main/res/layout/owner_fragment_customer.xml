@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/svSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -26,6 +26,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/tvActive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -35,6 +36,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvInActive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

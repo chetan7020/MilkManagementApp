@@ -23,7 +23,6 @@
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:editable="false"
                 android:text="7-10-2022"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -41,12 +40,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:editable="false"
                 android:text="All Customers" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
+            android:id="@+id/rgCowBuffalo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -54,18 +53,21 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@id/rbCow"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
                 android:elevation="4dp"
+                android:checked="true"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Cow"
                 android:textColor="@drawable/text_color" />
 
             <RadioButton
+                android:id="@+id/rbBuffalo"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -80,6 +82,7 @@
         </RadioGroup>
 
         <RadioGroup
+            android:id="@+id/rgMorningEvening"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -87,18 +90,21 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rbMorning"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
                 android:elevation="4dp"
+                android:checked="true"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Morning"
                 android:textColor="@drawable/text_color" />
 
             <RadioButton
+                android:id="@+id/rbEvening"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -133,6 +139,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/etLiter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -154,11 +161,10 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/etFat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-
-                    />
+                    android:inputType="number" />
 
             </LinearLayout>
 
@@ -185,6 +191,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/etRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -206,6 +213,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/etTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />

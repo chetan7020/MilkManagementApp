@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#b7cbc7"
     tools:context=".owner.bill.CustomerBillFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="20dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -73,7 +73,6 @@
                     android:id="@+id/etDateFrom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +102,6 @@
                     android:id="@+id/etDateTo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -140,6 +138,7 @@
                     android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tvSBCustomerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -148,6 +147,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvSBTotalPayableAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -157,6 +157,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvSBPaidAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -166,6 +167,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvSBRemainingAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -210,6 +212,7 @@
                     android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tvBBCustomerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -218,6 +221,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBTotalReceivableAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -227,6 +231,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBReceivedAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -236,6 +241,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBRemainingAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"

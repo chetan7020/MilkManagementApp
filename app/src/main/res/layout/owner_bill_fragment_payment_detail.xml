@@ -55,7 +55,6 @@
                     android:id="@+id/etDateFrom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -85,7 +84,6 @@
                     android:id="@+id/etDateTo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -122,6 +120,7 @@
                     android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tvSBTotalPayableAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -130,6 +129,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBPaidAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -139,6 +139,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvSBRemainingAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -183,6 +184,7 @@
                     android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tvBBTotalReceivableAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -191,6 +193,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBReceivedAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -200,6 +203,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvBBRemainingAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"

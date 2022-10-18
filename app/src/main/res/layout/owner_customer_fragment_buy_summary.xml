@@ -55,7 +55,6 @@
                     android:id="@+id/etDateFrom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -85,7 +84,6 @@
                     android:id="@+id/etDateTo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:editable="false"
                     android:text="7-10-2022"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +91,7 @@
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/rgCowBuffalo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -100,18 +99,21 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rbCow"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
                 android:elevation="4dp"
+                android:checked="true"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Cow"
                 android:textColor="@drawable/text_color" />
 
             <RadioButton
+                android:id="@+id/rbBuffalo"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

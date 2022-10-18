@@ -80,6 +80,7 @@
                     android:src="@drawable/whatsapp" />
 
                 <TextView
+                    android:id="@+id/tvMobileNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
@@ -102,6 +103,7 @@
                     android:src="@drawable/location" />
 
                 <TextView
+                    android:id="@+id/tvAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
@@ -122,8 +124,9 @@
             app:cardBackgroundColor="@color/white">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tvShareFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_medium"
                 android:padding="15dp"
                 android:text="Share Feedback"
@@ -139,8 +142,9 @@
             app:cardBackgroundColor="@color/white">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tvLogout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_medium"
                 android:padding="15dp"
                 android:text="Logout"

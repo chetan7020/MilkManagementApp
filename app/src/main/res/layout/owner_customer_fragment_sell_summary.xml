@@ -93,6 +93,7 @@
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/rgCowBuffalo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -100,11 +101,13 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rbCow"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
+                android:checked="true"
                 android:elevation="4dp"
                 android:gravity="center"
                 android:padding="10dp"
@@ -112,6 +115,7 @@
                 android:textColor="@drawable/text_color" />
 
             <RadioButton
+                android:id="@+id/rbBuffalo"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
