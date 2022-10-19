@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,8 +51,15 @@ public class ProfileFragment extends Fragment {
 
         initialize();
 
+        tvShareFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Yet to Build", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         firebaseFirestore.collection("dairy_owner")
-                .whereEqualTo("mobile_number", "+91" + firebaseUser.getPhoneNumber())
+                .whereEqualTo("mobile_number", firebaseUser.getPhoneNumber())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

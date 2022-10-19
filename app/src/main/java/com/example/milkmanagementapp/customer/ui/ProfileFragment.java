@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
         initialize();
 
         firebaseFirestore.collection("customer")
-                .whereEqualTo("mobile_number", "+91" + firebaseUser.getPhoneNumber())
+                .whereEqualTo("mobile_number", firebaseUser.getPhoneNumber())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

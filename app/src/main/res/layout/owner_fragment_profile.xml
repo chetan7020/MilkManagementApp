@@ -30,7 +30,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Chetan Patil"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
@@ -44,7 +43,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
-                        android:text="1234567890"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
@@ -85,7 +83,6 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="Katraj Dairy"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -108,7 +105,6 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="7823859849"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -131,7 +127,6 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="Katraj, Pune"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
