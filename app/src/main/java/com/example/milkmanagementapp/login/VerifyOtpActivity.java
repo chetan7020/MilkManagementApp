@@ -123,6 +123,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(VerifyOtpActivity.this , LoginSuccessesActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtra("mobile_number" , mobile_number);
                             startActivity(intent);
                         } else {
                             Toast.makeText(VerifyOtpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
