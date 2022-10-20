@@ -2,6 +2,7 @@ package com.example.milkmanagementapp.owner;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -11,10 +12,22 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.milkmanagementapp.R;
 import com.example.milkmanagementapp.databinding.ActivityOwnerMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class OwnerMainActivity extends AppCompatActivity {
 
     private ActivityOwnerMainBinding binding;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +35,46 @@ public class OwnerMainActivity extends AppCompatActivity {
 
         binding = ActivityOwnerMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+
+        firebaseFirestore
+                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                .whereEqualTo("status" , "Active")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        Map<Object, String> data = new HashMap<>();
+
+                        data.put("count", String.valueOf(value.size()));
+
+                        firebaseFirestore
+                                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                                .document("active")
+                                .set(data);
+
+                    }
+                });
+
+        firebaseFirestore
+                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                .whereEqualTo("status" , "InActive")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        Map<Object, String> data = new HashMap<>();
+
+                        data.put("count", String.valueOf(value.size()));
+
+                        firebaseFirestore
+                                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                                .document("inactive")
+                                .set(data);
+                    }
+                });
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

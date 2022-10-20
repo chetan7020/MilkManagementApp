@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#b7cbc7"
+    android:orientation="vertical"
     tools:context=".owner.ui.CustomerFragment">
 
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
     <LinearLayout
+        android:id="@+id/llView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -49,7 +57,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnNext"
+            android:id="@+id/btnAddNew"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -58,23 +66,30 @@
             android:text="Add New"
             android:textAllCaps="false" />
 
-
-        <LinearLayout
-            android:id="@+id/llData"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvNoDataFound"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:fontFamily="@font/poppins_medium"
+            android:text="No Data Found"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="gone" />
 
-            <include layout="@layout/owner_customer_card_layout" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <include layout="@layout/owner_customer_card_layout" />
+            <LinearLayout
+                android:id="@+id/llData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
-            <include layout="@layout/owner_customer_card_layout" />
+        </androidx.core.widget.NestedScrollView>
 
-            <include layout="@layout/owner_customer_card_layout" />
-
-        </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+
+</LinearLayout>

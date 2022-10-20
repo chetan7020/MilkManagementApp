@@ -87,8 +87,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
-
             verificationCodeBySystem = s;
+            Toast.makeText(VerifyOtpActivity.this, "OTP Send", Toast.LENGTH_SHORT).show();
         }
 
         @Override

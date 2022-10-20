@@ -111,7 +111,7 @@ public class SelectUserActivity extends AppCompatActivity {
                     if (rgUserType.getCheckedRadioButtonId() == rbCustomer.getId()) {
 
                         firebaseFirestore.collection("customer")
-                                .document(id)
+                                .document(firebaseUser.getPhoneNumber())
                                 .set(data)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
