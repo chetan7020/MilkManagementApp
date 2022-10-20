@@ -104,7 +104,8 @@ public class CustomerFragment extends Fragment {
 
         firebaseFirestore
                 .collection(firebaseUser.getPhoneNumber() + "_customer")
-                .whereNotEqualTo("id", false)
+                .whereNotEqualTo("name", false)
+                .orderBy("name")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -112,6 +113,9 @@ public class CustomerFragment extends Fragment {
                         if (value.size() == 0) {
                             tvNoDataFound.setVisibility(View.VISIBLE);
                         } else {
+                            FragmentManager fm = getFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            ft.remove(new AddNewCustomerFragment()).commit();
                             for (DocumentChange documentChange : value.getDocumentChanges()) {
                                 String id = documentChange.getDocument().getData().get("id").toString();
                                 String name = documentChange.getDocument().getData().get("name").toString();

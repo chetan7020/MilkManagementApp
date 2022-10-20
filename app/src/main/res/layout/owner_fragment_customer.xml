@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Active : 0"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -49,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_medium"
-                android:text="In-Active : 0"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textSize="18sp" />

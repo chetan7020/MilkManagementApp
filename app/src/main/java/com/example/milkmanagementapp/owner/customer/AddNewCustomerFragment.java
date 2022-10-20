@@ -120,8 +120,7 @@ public class AddNewCustomerFragment extends Fragment {
             }
         });
 
-        Log.d("tag", "done");
-
         return view;
     }
+
 }

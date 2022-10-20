@@ -16,13 +16,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:hint="Select Date">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:editable="false"
                 android:text="7-10-2022"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -32,16 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:hint="Select Customer">
+            android:hint="Select Customer"
+            >
 
             <AutoCompleteTextView
                 android:id="@+id/spCustomerList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
-                android:editable="false"
-                android:text="All Customers" />
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,6 +141,7 @@
                     android:id="@+id/etLiter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="0"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -165,6 +164,7 @@
                     android:id="@+id/etFat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="0"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -195,6 +195,7 @@
                     android:id="@+id/etRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="0"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -217,6 +218,8 @@
                     android:id="@+id/etTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:text="0"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -224,7 +227,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnNext"
+            android:id="@+id/btnSave"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
