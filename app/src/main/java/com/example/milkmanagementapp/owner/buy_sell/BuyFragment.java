@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,7 @@ public class BuyFragment extends Fragment {
         view = inflater.inflate(R.layout.owner_customer_fragment_buy, container, false);
 
         initialize();
+
 
         setDropDownList();
 

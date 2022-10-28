@@ -3,15 +3,19 @@ package com.example.milkmanagementapp.owner.ui;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -67,7 +71,6 @@ public class CustomerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.owner_fragment_customer, container, false);
-        Log.d("tag" , "on complete start");
 
         initialize();
 
@@ -177,6 +180,26 @@ public class CustomerFragment extends Fragment {
         TextView tvMobileNumber = view.findViewById(R.id.tvMobileNumber);
         TextView tvCustomerType = view.findViewById(R.id.tvCustomerType);
         TextView tvStatus = view.findViewById(R.id.tvStatus);
+
+        ImageView ivMore = view.findViewById(R.id.ivMore);
+
+        ivMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(getActivity(), ivMore);
+
+                popupMenu.getMenuInflater().inflate(R.menu.owner_customer_popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        Toast.makeText(getActivity(), "You Clicked " + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
 
         tvID.setText(id);
         tvName.setText(name);
