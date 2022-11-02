@@ -65,7 +65,6 @@ public class CustomerFragment extends Fragment {
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        Log.d("tag" , "initialize complete");
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,

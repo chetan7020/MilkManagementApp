@@ -7,35 +7,26 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Date : 7-10-2022"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:fontFamily="@font/poppins_light"
         android:text="Morning"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="18dp" />
 
-    <include layout="@layout/owner_buysell_summary_table_header_layout" />
+    <include layout="@layout/owner_buysell_summary_morning_table_header_layout" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_light"
         android:text="Evening"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="18dp" />
 
-    <include layout="@layout/owner_buysell_summary_table_header_layout" />
+    <include layout="@layout/owner_buysell_summary_evening_table_header_layout" />
 
 
 </LinearLayout>

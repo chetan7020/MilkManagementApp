@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +31,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -147,7 +150,11 @@ public class BuyFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertData();
+                try {
+                    insertData();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -161,9 +168,10 @@ public class BuyFragment extends Fragment {
         return view;
     }
 
-    private void insertData() {
+    private void insertData() throws ParseException {
         String selected_user = spCustomerList.getEditableText().toString();
         String date = etDate.getText().toString().trim();
+
 
         String animal = "";
         if (rgCowBuffalo.getCheckedRadioButtonId() == R.id.rbCow) {
@@ -188,7 +196,8 @@ public class BuyFragment extends Fragment {
                 rate.equals("") ||
                 liter.equals("0") ||
                 fat.equals("0") ||
-                rate.equals("0")) {
+                rate.equals("0") ||
+                date.equals("")) {
 
             if (liter.equals("") || liter.equals("0")) {
                 etLiter.setError("Required");
@@ -202,12 +211,28 @@ public class BuyFragment extends Fragment {
                 etRate.setError("Required");
             }
 
+            if (date.equals("")) {
+                etDate.setError("Required");
+            }
+
         } else {
 
             etLiter.setError(null);
             etFat.setError(null);
             etRate.setError(null);
+            etDate.setError(null);
 
+            date = date.replace("-", "/");
+
+            Date date_new = new SimpleDateFormat("dd/MM/yyyy")
+                    .parse(date);
+
+            Timestamp ts = new Timestamp(date_new.getTime());
+
+            SimpleDateFormat formatter
+                    = new SimpleDateFormat("yyyy-MM-dd");
+
+            date = formatter.format(ts);
 
             if (selected_user.equals("Select Customer") || selected_user.equals("")) {
                 Toast.makeText(getActivity(), "Select Customer", Toast.LENGTH_SHORT).show();

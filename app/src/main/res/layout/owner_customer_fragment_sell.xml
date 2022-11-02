@@ -22,7 +22,6 @@
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="7-10-2022"
                 android:editable="false"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
