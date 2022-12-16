@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
-    private TextView tvName, tvID, tvMobileNumber, tvAddress, tvLogout, tvShareFeedBack;
+    private TextView tvName, tvID, tvMobileNumber, tvAddress, tvLogout;
 
 
     private void initialize() {
@@ -37,7 +37,6 @@ public class ProfileFragment extends Fragment {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         tvLogout = view.findViewById(R.id.tvLogout);
-        tvShareFeedBack = view.findViewById(R.id.tvShareFeedback);
 
         tvName = view.findViewById(R.id.tvName);
         tvID = view.findViewById(R.id.tvID);
@@ -69,19 +68,13 @@ public class ProfileFragment extends Fragment {
                         }
                     }
                 });
-        
-        tvShareFeedBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Yet to build", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         tvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
             }
         });
 

@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tlDataDistribution"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <TableRow android:background="#01ba8e">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Dairy Name"
-            android:textColor="@color/white" />
+            android:text="Time"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Liter"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Fat"
-            android:textColor="@color/white" />
+            android:text="Avg. Fat"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Rate"
-            android:textColor="@color/white" />
+            android:text="Avg. Rate"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2.5"
+            android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Total"
-            android:textColor="@color/white" />
+            android:text="Amount"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
     </TableRow>
-
-    <include layout="@layout/customer_buysell_table_row_layout" />
-
-    <include layout="@layout/customer_buysell_table_row_layout" />
-
-    <include layout="@layout/customer_buysell_table_row_layout" />
 
 </TableLayout>

@@ -25,7 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class ProfileFragment extends Fragment {
 
     private View view;
-    private TextView tvLogout, tvShareFeedback, tvName, tvID, tvDairyName, tvMobileNumber, tvAddress, tvTotalCustomer;
+    private TextView tvLogout, tvName, tvID, tvDairyName, tvMobileNumber, tvAddress, tvTotalCustomer;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
@@ -36,7 +36,6 @@ public class ProfileFragment extends Fragment {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         tvLogout = view.findViewById(R.id.tvLogout);
-        tvShareFeedback = view.findViewById(R.id.tvShareFeedback);
 
         tvDairyName = view.findViewById(R.id.tvDairyName);
         tvName = view.findViewById(R.id.tvName);
@@ -58,14 +57,6 @@ public class ProfileFragment extends Fragment {
 
         setTotalCustomer();
 
-        tvShareFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Yet to Build", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
         tvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,15 +71,15 @@ public class ProfileFragment extends Fragment {
     private void setTotalCustomer() {
         firebaseFirestore
                 .collection(firebaseUser.getPhoneNumber() + "_customer")
-                .whereNotEqualTo("count", false)
+                .whereNotEqualTo("total_count", false)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         int total_customer = 0;
                         for (DocumentChange documentChange : value.getDocumentChanges()) {
-                            total_customer += Integer.parseInt(documentChange.getDocument().getData().get("count").toString());
+                            total_customer += Integer.parseInt(documentChange.getDocument().getData().get("total_count").toString());
                         }
-                        tvTotalCustomer.setText(String.valueOf(total_customer));
+                        tvTotalCustomer.setText(" : " + String.valueOf(total_customer));
                     }
                 });
     }

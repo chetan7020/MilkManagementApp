@@ -15,10 +15,6 @@ import com.example.milkmanagementapp.R;
 import com.example.milkmanagementapp.owner.bill.CustomerBillFragment;
 import com.example.milkmanagementapp.owner.bill.PaymentDetailFragment;
 import com.example.milkmanagementapp.owner.bill.TransactionFragment;
-import com.example.milkmanagementapp.owner.buy_sell.BuyFragment;
-import com.example.milkmanagementapp.owner.buy_sell.BuySummaryFragment;
-import com.example.milkmanagementapp.owner.buy_sell.SellFragment;
-import com.example.milkmanagementapp.owner.buy_sell.SellSummaryFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class BillFragment extends Fragment {

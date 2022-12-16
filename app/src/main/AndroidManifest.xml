@@ -9,12 +9,12 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.MilkManagementApp"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.milkmanagementapp.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,24 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".customer.CustomerMainActivity"
+            android:name="com.example.milkmanagementapp.customer.CustomerMainActivity"
             android:exported="false"
             android:label="@string/title_activity_customer_main" />
         <activity
-            android:name=".login.SelectUserActivity"
+            android:name="com.example.milkmanagementapp.login.SelectUserActivity"
             android:exported="false" />
         <activity
-            android:name=".owner.OwnerMainActivity"
+            android:name="com.example.milkmanagementapp.owner.OwnerMainActivity"
             android:exported="false"
             android:label="@string/title_activity_owner_main" />
         <activity
-            android:name=".login.LoginSuccessesActivity"
+            android:name="com.example.milkmanagementapp.login.LoginSuccessesActivity"
             android:exported="false" />
         <activity
-            android:name=".login.VerifyOtpActivity"
+            android:name="com.example.milkmanagementapp.login.VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name="com.example.milkmanagementapp.login.LoginActivity"
             android:exported="false">
 
         </activity>

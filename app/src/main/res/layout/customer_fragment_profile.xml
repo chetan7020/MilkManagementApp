@@ -46,13 +46,6 @@
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_marginStart="5dp"
-                        android:src="@drawable/copy"
-                        app:tint="@color/white" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -112,24 +105,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <TextView
-                android:id="@+id/tvShareFeedback"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:padding="15dp"
-                android:text="Share Feedback"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

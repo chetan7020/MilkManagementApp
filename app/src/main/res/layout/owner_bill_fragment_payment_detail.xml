@@ -10,85 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="vertical">
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/poppins_medium"-->
-<!--                    android:text="Date"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="18sp" />-->
-
-<!--                <androidx.appcompat.widget.SwitchCompat-->
-<!--                    android:id="@+id/swDayInterval"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="30dp"-->
-<!--                    android:textOff="Interval"-->
-<!--                    android:textOn="Daily"-->
-<!--                    android:thumb="@drawable/thumb"-->
-<!--                    app:showText="true"-->
-<!--                    app:thumbTextPadding="5dp"-->
-<!--                    app:track="@drawable/track" />-->
-
-<!--            </LinearLayout>-->
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@color/white"-->
-<!--                android:hint="Select Date">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/etDateFrom"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="7-10-2022"-->
-<!--                    android:textSize="15sp" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tvTo"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:fontFamily="@font/poppins_light"-->
-<!--                android:text="To"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="18sp"-->
-<!--                android:visibility="gone" />-->
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/etToLayout"-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@color/white"-->
-<!--                android:hint="Select Date"-->
-<!--                android:visibility="gone">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/etDateTo"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:text="7-10-2022"-->
-<!--                    android:textSize="15sp" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
-<!--        </LinearLayout>-->
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -124,17 +47,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Total Payable Amount : 10000"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvBBPaidAmount"
+                        android:id="@+id/tvSBPaidAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Paid Amount : 5000"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -144,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Remaining Amount : 5000"
+                        android:text="Loading..."
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -188,7 +109,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Total Receivable Amount : 10000"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -198,7 +118,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Received Amount : 5000"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -208,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="Remaining Amount : 5000"
+                        android:text="Loading..."
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 

@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_notifications">
+    app:startDestination="@+id/navigation_dairy">
+
+    <fragment
+        android:id="@+id/navigation_dairy"
+        android:name="com.example.milkmanagementapp.customer.ui.HomeFragment"
+        android:label="Dairy"
+        tools:layout="@layout/customer_fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

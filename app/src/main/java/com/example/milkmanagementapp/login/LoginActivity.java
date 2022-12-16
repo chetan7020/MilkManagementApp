@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this , VerifyOtpActivity.class);
                     intent.putExtra("mobile_number" , mobile_number);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

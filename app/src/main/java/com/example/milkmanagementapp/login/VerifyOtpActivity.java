@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,12 +33,14 @@ public class VerifyOtpActivity extends AppCompatActivity {
     private ProgressBar pbLoader;
     private FirebaseAuth firebaseAuth;
     private String verificationCodeBySystem;
-
+    private TextView tvMsgSend;
 
     private void initialize() {
         btnVerify = findViewById(R.id.btnVerify);
         pbLoader = findViewById(R.id.pbLoader);
         etOTP = findViewById(R.id.etOTP);
+
+        tvMsgSend = findViewById(R.id.tvMsgSend);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -50,6 +53,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verify_otp);
 
         initialize();
+
+        tvMsgSend.setText("We have sent you an SMS on " + mobile_number + " with 6 digit verification code");
 
         sendVerificationCode(mobile_number);
 
@@ -125,9 +130,11 @@ public class VerifyOtpActivity extends AppCompatActivity {
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("mobile_number" , mobile_number);
                             startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(VerifyOtpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(VerifyOtpActivity.this, LoginActivity.class));
+                            finish();
                         }
                     }
                 });

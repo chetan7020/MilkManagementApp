@@ -1,6 +1,7 @@
 package com.example.milkmanagementapp.owner;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.example.milkmanagementapp.databinding.ActivityOwnerMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -42,17 +44,32 @@ public class OwnerMainActivity extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         firebaseFirestore
-                .collection(firebaseUser.getPhoneNumber()+"_customer")
-                .whereEqualTo("status" , "Active")
+                .collection(firebaseUser.getPhoneNumber() + "_customer")
+                .whereEqualTo("status", "Active")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         Map<Object, String> data = new HashMap<>();
 
-                        data.put("count", String.valueOf(value.size()));
+                        data.put("total_count", String.valueOf(value.size()));
+
+                        int total_seller_count = 0, total_buyer_count = 0;
+
+                        for (DocumentChange documentChange : value.getDocumentChanges()) {
+                            String type = documentChange.getDocument().getData().get("type").toString();
+
+                            if (type.equals("Seller")) {
+                                total_seller_count += 1;
+                            } else if (type.equals("Buyer")) {
+                                total_buyer_count += 1;
+                            }
+                        }
+
+                        data.put("total_seller_count", String.valueOf(total_seller_count));
+                        data.put("total_buyer_count", String.valueOf(total_buyer_count));
 
                         firebaseFirestore
-                                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                                .collection(firebaseUser.getPhoneNumber() + "_customer")
                                 .document("active")
                                 .set(data);
 
@@ -60,17 +77,32 @@ public class OwnerMainActivity extends AppCompatActivity {
                 });
 
         firebaseFirestore
-                .collection(firebaseUser.getPhoneNumber()+"_customer")
-                .whereEqualTo("status" , "InActive")
+                .collection(firebaseUser.getPhoneNumber() + "_customer")
+                .whereEqualTo("status", "InActive")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         Map<Object, String> data = new HashMap<>();
 
-                        data.put("count", String.valueOf(value.size()));
+                        data.put("total_count", String.valueOf(value.size()));
+
+                        int total_seller_count = 0, total_buyer_count = 0;
+
+                        for (DocumentChange documentChange : value.getDocumentChanges()) {
+                            String type = documentChange.getDocument().getData().get("type").toString();
+
+                            if (type.equals("Seller")) {
+                                total_seller_count += 1;
+                            } else if (type.equals("Buyer")) {
+                                total_buyer_count += 1;
+                            }
+                        }
+
+                        data.put("total_seller_count", String.valueOf(total_seller_count));
+                        data.put("total_buyer_count", String.valueOf(total_buyer_count));
 
                         firebaseFirestore
-                                .collection(firebaseUser.getPhoneNumber()+"_customer")
+                                .collection(firebaseUser.getPhoneNumber() + "_customer")
                                 .document("inactive")
                                 .set(data);
                     }

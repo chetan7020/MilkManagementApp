@@ -115,10 +115,13 @@ public class LoginSuccessesActivity extends AppCompatActivity {
                                 String user = (String) documentSnapshot.get("u");
                                 if (user.equals("customer")){
                                     startActivity(new Intent(LoginSuccessesActivity.this, CustomerMainActivity.class));
+                                    finish();
                                 }else if (user.equals("owner")){
                                     startActivity(new Intent(LoginSuccessesActivity.this, OwnerMainActivity.class));
+                                    finish();
                                 }else if (user.equals("")){
                                     startActivity(new Intent(LoginSuccessesActivity.this, SelectUserActivity.class));
+                                    finish();
                                 }
                             }
                         });

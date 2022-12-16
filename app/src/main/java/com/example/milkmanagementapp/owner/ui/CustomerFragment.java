@@ -1,7 +1,6 @@
 package com.example.milkmanagementapp.owner.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +22,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.milkmanagementapp.R;
+import com.example.milkmanagementapp.owner.buy_sell.BuySummaryFragment;
 import com.example.milkmanagementapp.owner.customer.AddNewCustomerFragment;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -76,7 +77,6 @@ public class CustomerFragment extends Fragment {
         setCustomerCount();
 
         svSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -104,6 +104,27 @@ public class CustomerFragment extends Fragment {
             }
         });
 
+        getData();
+
+        btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                llView.setVisibility(View.GONE);
+                frameLayout.setVisibility(View.VISIBLE);
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.frame_layout, new AddNewCustomerFragment());
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                ft.commit();
+            }
+        });
+
+        return view;
+    }
+
+    private void getData() {
         firebaseFirestore
                 .collection(firebaseUser.getPhoneNumber() + "_customer")
                 .whereNotEqualTo("name", false)
@@ -131,22 +152,6 @@ public class CustomerFragment extends Fragment {
                     }
                 });
 
-        btnAddNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                llView.setVisibility(View.GONE);
-                frameLayout.setVisibility(View.VISIBLE);
-
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.frame_layout, new AddNewCustomerFragment());
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                ft.commit();
-            }
-        });
-
-        return view;
     }
 
     private void setCustomerCount() {
@@ -156,7 +161,7 @@ public class CustomerFragment extends Fragment {
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        tvActive.setText("Active : " + documentSnapshot.getString("count"));
+                        tvActive.setText("Active : " + documentSnapshot.getString("total_count"));
                     }
                 });
 
@@ -166,7 +171,7 @@ public class CustomerFragment extends Fragment {
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        tvInActive.setText("In-Active : " + documentSnapshot.getString("count"));
+                        tvInActive.setText("In-Active : " + documentSnapshot.getString("total_count"));
                     }
                 });
     }
@@ -191,9 +196,52 @@ public class CustomerFragment extends Fragment {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(getActivity(), "You Clicked " + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                        String selected = menuItem.getTitle().toString();
+                        if (selected.equals("Active / Inactive")){
+                            String status = tvStatus.getText().toString();
 
-                        return true;
+                            if (status.equals("Active")){
+                                status = "InActive";
+                            }else{
+                                status = "Active";
+                            }
+
+                            firebaseFirestore.collection(firebaseUser.getPhoneNumber() + "_customer")
+                                    .document(tvID.getText().toString())
+                                    .update("status" , status)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(getActivity(), "Status Updated", Toast.LENGTH_SHORT).show();
+                                            llData.removeAllViews();
+                                            getData();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                        }else if (selected.equals("Delete")){
+                            firebaseFirestore.collection(firebaseUser.getPhoneNumber() + "_customer")
+                                    .document(tvID.getText().toString())
+                                    .delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(getActivity(), "Customer Deleted", Toast.LENGTH_SHORT).show();
+                                            llData.removeAllViews();
+                                            getData();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                            return true;
                     }
                 });
                 popupMenu.show();

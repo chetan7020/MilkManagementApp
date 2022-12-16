@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tlDataCollection"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white">
@@ -67,9 +68,5 @@
             android:textSize="12sp" />
 
     </TableRow>
-
-    <include layout="@layout/owner_home_table_row_layout" />
-    <include layout="@layout/owner_home_table_row_layout" />
-    <include layout="@layout/owner_home_table_row_layout" />
 
 </TableLayout>

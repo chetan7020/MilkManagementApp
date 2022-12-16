@@ -117,6 +117,7 @@ public class SelectUserActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         startActivity(new Intent(SelectUserActivity.this, CustomerMainActivity.class));
+                                        finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -142,6 +143,7 @@ public class SelectUserActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             startActivity(new Intent(SelectUserActivity.this, OwnerMainActivity.class));
+                                            finish();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override

@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/navigation_dairy"
+        android:icon="@drawable/milk"
+        android:title="Dairy" />
+
+    <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/buysell"
         android:title="Buy-Sell" />

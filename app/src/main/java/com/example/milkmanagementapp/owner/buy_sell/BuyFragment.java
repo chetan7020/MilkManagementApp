@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,6 @@ public class BuyFragment extends Fragment {
         rgCowBuffalo = view.findViewById(R.id.rgCowBuffalo);
         rgMorningEvening = view.findViewById(R.id.rgMorningEvening);
 
-
         etDate = view.findViewById(R.id.etDate);
 
         spCustomerList = view.findViewById(R.id.spCustomerList);
@@ -79,7 +79,6 @@ public class BuyFragment extends Fragment {
         view = inflater.inflate(R.layout.owner_customer_fragment_buy, container, false);
 
         initialize();
-
 
         setDropDownList();
 
@@ -224,6 +223,8 @@ public class BuyFragment extends Fragment {
 
             date = date.replace("-", "/");
 
+            Log.d("tag" , date);
+
             Date date_new = new SimpleDateFormat("dd/MM/yyyy")
                     .parse(date);
 
@@ -288,6 +289,7 @@ public class BuyFragment extends Fragment {
                             names.add("Select Customer");
                             for (DocumentChange documentChange : value.getDocumentChanges()) {
                                 String name = documentChange.getDocument().getData().get("name").toString();
+                                Log.d("tag" , name);
                                 names.add(name);
                             }
                             ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, names);
